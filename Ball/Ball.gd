@@ -9,7 +9,6 @@ func _ready():
 		yellow()
 	elif color == "blue":
 		blue()
-	apply_central_impulse(Vector2(100,55))
 
 
 func red():

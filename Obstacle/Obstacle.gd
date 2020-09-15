@@ -47,4 +47,5 @@ func _on_Timer_timeout():
 
 
 func _on_Delete_body_entered(body):
+	body.queue_free()
 	queue_free()
