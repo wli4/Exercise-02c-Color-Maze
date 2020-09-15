@@ -8,7 +8,9 @@ func _ready():
 	var height = floor(get_viewport().size.y / grid)
 	for x in range(width):
 		for y in range(height):
-			if (x != 0 or y != 0) and (x < width-1 or y < height-1):
+			if x == 1 and y == 1:
+				pass
+			else:
 				var o = Obstacle.instance()
 				o.position.x = x*grid
 				o.position.y = y*grid

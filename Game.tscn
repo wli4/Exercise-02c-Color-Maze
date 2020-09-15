@@ -1,48 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Obstacle/Maze.gd" type="Script" id=1]
-
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 320 )
+scale = Vector2( 5.29687, 5.29687 )
+texture = ExtResource( 2 )
 
 [node name="Maze" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2( 990.657, 565.685 )
-mode = 2
-physics_material_override = SubResource( 2 )
-gravity_scale = 0.0
-linear_velocity = Vector2( 40, 40 )
-linear_damp = 0.0
-angular_damp = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="Ball"]
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 8.0
-margin_bottom = 8.0
-color = Color( 0.52549, 0.180392, 0.611765, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource( 1 )
-
 [node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( 0, 0, 0, 584, 1024, 592, 1024, 0, 1152, 0, 1160, 704, -128, 704, -128, -8 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( 0, 0, 1176, 0, 1160, -64, -168, -64, -168, 0 )
+polygon = PoolVector2Array( 0, 0, 0, 640, 640, 640, 640, 0, 32, 0, 32, -64, 704, -64, 704, 704, -64, 704, -64, -64, 32, -64, 32, 0 )
